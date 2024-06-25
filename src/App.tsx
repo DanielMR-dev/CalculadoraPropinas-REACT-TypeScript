@@ -4,9 +4,9 @@ function App() {
 
   return (
     <>
-      <h1>Hola Mundo</h1>
+      <h1 className="text-lg">Hola Mundo</h1>
 
-      
+
     </>
   )
 }
