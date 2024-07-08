@@ -1,3 +1,4 @@
+import { menuItems } from "./types"
 
 function App() {
   
