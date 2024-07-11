@@ -5,9 +5,19 @@ export default function useOrder() {
     const [order, setOrder] = useState<OrderItem[]>([]) // Utilizando el Generic se especifica el tipo de dato que va a utilizar "order" en este caso el type de OrderItem[]
 
     const addItem = (item: MenuItem) => {
-
-        const newItem : OrderItem = {...item, quantity: 1} // Se le asigna el type de OrderItem al newItem
-        setOrder([...order, newItem])
+        // Verificar si ya existe el item en la orden 
+        const itemExist = order.find(orderItem => orderItem.id === item.id)
+        if(itemExist) { // El item existe
+            const updatedOrder = order.map(orderItem => orderItem.id === item.id ? // Se genera una copia de order en updatedOrder
+                {...orderItem, quantity : orderItem.quantity + 1} // Si el id del item a agregar ya está en order item, se aumenta la cantidad
+                : orderItem // Retorna los elementos que no coinciden con el id que estamos buscando
+            )
+            setOrder(updatedOrder)
+        } else { // El item NO existe
+            const newItem : OrderItem = {...item, quantity: 1} // Se le asigna el type de OrderItem al newItem
+            setOrder([...order, newItem])
+        }
+        
     }
 
     return {
