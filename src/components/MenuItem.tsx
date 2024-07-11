@@ -1,7 +1,7 @@
 import type { MenuItem } from "../types"
 
 type MenuItemProps = { // Se crea el prop de menu item
-  item: MenuItem
+  item: MenuItem,
   addItem: (item: MenuItem) => void
 }
 
