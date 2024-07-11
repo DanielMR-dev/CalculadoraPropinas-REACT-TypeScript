@@ -35,7 +35,7 @@ export default function TipPercentageForm({setTip} : TipPercentageFormProps) {
                             type="radio"
                             name="tip"
                             value={tip.value}
-                            onChange={ e => setTip(e.target.value)}
+                            onChange={ e => setTip(+e.target.value)}
                         />
                     </div>
                 ))}
